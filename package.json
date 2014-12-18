@@ -3,9 +3,13 @@
   "version": "0.0.1",
   "description": "online ordering with browserify and react",
   "repository": {
-    "type":"git",
-    "url":"git@github.com:markryall/online_order.git"
+    "type": "git",
+    "url": "git@github.com:markryall/online_order.git"
+  },
+  "scripts": {
+    "build": "node_modules/.bin/browserify src/index.js > public/scripts.js"
   },
   "dependencies": {
+    "browserify": "^7.0.2"
   }
 }
