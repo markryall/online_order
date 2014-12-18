@@ -2,6 +2,10 @@
   "name": "online_order",
   "version": "0.0.1",
   "description": "online ordering with browserify and react",
+  "repository": {
+    "type":"git",
+    "url":"git@github.com:markryall/online_order.git"
+  },
   "dependencies": {
   }
 }
