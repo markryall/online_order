@@ -7,9 +7,14 @@
     "url": "git@github.com:markryall/online_order.git"
   },
   "scripts": {
-    "build": "node_modules/.bin/browserify src/index.js > public/scripts.js"
+    "build": "node_modules/.bin/browserify src/index.js > public/scripts.js",
+    "up": "node_modules/.bin/forever start server.js",
+    "down": "node_modules/.bin/forever stopall"
   },
   "dependencies": {
-    "browserify": "^7.0.2"
+    "browserify": "^7.0.2",
+    "compression": "^1.2.2",
+    "express": "^4.10.6",
+    "morgan": "^1.5.0"
   }
 }
