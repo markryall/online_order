@@ -1,0 +1,7 @@
+{
+  "name": "online_order",
+  "version": "0.0.1",
+  "description": "online ordering with browserify and react",
+  "dependencies": {
+  }
+}
