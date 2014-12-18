@@ -1,1 +1,3 @@
-console.log("hello world");
+var React = require('react');
+
+React.render(<p>hello world</p>, document.body);
