@@ -1,4 +1,5 @@
 var React = require('react');
+var TextInput = require('../inputs/TextInput');
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -26,10 +27,7 @@ module.exports = React.createClass({
     console.log(current);
     return <div className="content">
         <form className="orderForm" role="form" onSubmit={ this.submit }>
-          <div className="form-group">
-            <label htmlFor="quantity">Quantity</label>
-            <input id="quantity" type="text" className="form-control" value={ current.quantity } onChange={ this.onChange } />
-          </div>
+          <TextInput id="quantity" label="Quantity" onChange={ this.onChange } value={ current.quantity} />
           <button id="submit" type="submit" className="btn btn-primary">Add</button>
         </form>
       </div>;
