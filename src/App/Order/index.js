@@ -11,7 +11,14 @@ module.exports = React.createClass({
     var component = this;
     emitter.on('addItem', function(item) {
       var items = component.state.items;
-      items.push(item);
+      var existingProductItem = _.find(items, function(existingItem) {
+        return existingItem.product == item.product;
+      });
+      if (existingProductItem) {
+        existingProductItem.quantity += item.quantity;
+      } else {
+        items.push(item);
+      }
       component.setState({ items: items });
     })
   },

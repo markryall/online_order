@@ -22,9 +22,11 @@ module.exports = React.createClass({
   },
 
   submit: function(event) {
-    emitter.emit('addItem', this.state.current);
-    this.setState(this.getInitialState());
     event.preventDefault();
+    var current = this.state.current;
+    current.quantity = Number(current.quantity);
+    emitter.emit('addItem', current);
+    this.setState(this.getInitialState());
   },
 
   render: function() {
