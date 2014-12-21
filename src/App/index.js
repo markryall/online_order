@@ -1,4 +1,5 @@
 var React = require('react');
+var SelectInput = require('../inputs/SelectInput');
 var TextInput = require('../inputs/TextInput');
 
 module.exports = React.createClass({
@@ -24,10 +25,16 @@ module.exports = React.createClass({
 
   render: function() {
     var current = this.state.current;
+    var products = [
+      'White Chocolate and Raspberry Muffin',
+      'Croissant with Jam',
+      'Chocolate Éclair'
+    ];
     console.log(current);
     return <div className="content">
         <form className="orderForm" role="form" onSubmit={ this.submit }>
-          <TextInput id="quantity" label="Quantity" onChange={ this.onChange } value={ current.quantity} />
+          <SelectInput id="product" label="Product" onChange={ this.onChange } value={ current.product } options={ products } />
+          <TextInput id="quantity" label="Quantity" onChange={ this.onChange } value={ current.quantity } />
           <button id="submit" type="submit" className="btn btn-primary">Add</button>
         </form>
       </div>;
