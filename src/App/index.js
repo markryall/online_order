@@ -1,11 +1,15 @@
 var React = require('react');
 var SelectInput = require('../inputs/SelectInput');
 var TextInput = require('../inputs/TextInput');
+var emitter = require('../emitter');
 
 module.exports = React.createClass({
   getInitialState: function() {
     return {
-      current: {}
+      current: {
+        product: '',
+        quantity: 1
+      }
     };
   },
 
@@ -13,24 +17,25 @@ module.exports = React.createClass({
     var id = event.target.id;
     var value = event.target.value;
     var current = this.state.current || {};
-    console.log(id, value);
     current[id] = value;
     this.setState({current: current});
   },
 
   submit: function(event) {
-    console.log(this.state.current);
+    emitter.emit('addItem', this.state.current);
+    this.setState(this.getInitialState());
     event.preventDefault();
   },
 
   render: function() {
     var current = this.state.current;
     var products = [
+      '',
+      'Crème brûlée',
       'White Chocolate and Raspberry Muffin',
       'Croissant with Jam',
       'Chocolate Éclair'
     ];
-    console.log(current);
     return <div className="content">
         <form className="orderForm" role="form" onSubmit={ this.submit }>
           <SelectInput id="product" label="Product" onChange={ this.onChange } value={ current.product } options={ products } />
